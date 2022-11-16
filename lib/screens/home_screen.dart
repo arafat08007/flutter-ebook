@@ -3,10 +3,17 @@ import 'package:book_app/screens/details_screen.dart';
 import 'package:book_app/widgets/book_rating.dart';
 import 'package:book_app/widgets/reading_card_list.dart';
 import 'package:book_app/widgets/two_side_rounded_button.dart';
+import 'package:anim_search_bar/anim_search_bar.dart';
 
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+import '../widgets/search_bar.dart';
+
+class HomeScreen extends StatefulWidget {
+  _AppState createState() => _AppState();
+}
+class _AppState extends State<HomeScreen> {
+  TextEditingController textController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -15,6 +22,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+         
             Container(
               width: double.infinity,
               decoration: BoxDecoration(
@@ -32,7 +40,7 @@ class HomeScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 24),
                     child: RichText(
                       text: TextSpan(
-                        style: Theme.of(context).textTheme.display1,
+                        style: Theme.of(context).textTheme.displaySmall,
                         children: [
                           TextSpan(text: "What are you \nreading "),
                           TextSpan(
@@ -82,7 +90,7 @@ class HomeScreen extends StatelessWidget {
                       children: <Widget>[
                         RichText(
                           text: TextSpan(
-                            style: Theme.of(context).textTheme.display1,
+                            style: Theme.of(context).textTheme.bodyText1,
                             children: [
                               TextSpan(text: "Best of the "),
                               TextSpan(
@@ -95,7 +103,7 @@ class HomeScreen extends StatelessWidget {
                         bestOfTheDayCard(size, context),
                         RichText(
                           text: TextSpan(
-                            style: Theme.of(context).textTheme.display1,
+                            style: Theme.of(context).textTheme.bodyMedium,
                             children: [
                               TextSpan(text: "Continue "),
                               TextSpan(
@@ -195,6 +203,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
+      
     );
   }
 
@@ -215,7 +224,7 @@ class HomeScreen extends StatelessWidget {
                 top: 24,
                 right: size.width * .35,
               ),
-              height: 230,
+              height: 200,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Color(0xFFEAEAEA).withOpacity(.45),
@@ -236,7 +245,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   Text(
                     "How To Win \nFriends &  Influence",
-                    style: Theme.of(context).textTheme.title,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   Text(
                     "Gary Venchuk",
@@ -294,3 +303,4 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
